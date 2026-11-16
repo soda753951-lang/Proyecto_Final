@@ -1,0 +1,156 @@
+/* Configuraciones de borde y asignacion de colores */
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --color_fondo: rgb(11, 14, 19);
+    --color_tarjeta: rgb(22, 27, 36);
+    --color_borde: rgb(35, 42, 54);
+    --color_textos_verdes: rgb(155, 195, 84);
+    --color_textos_plomos: rgb(155, 164, 181);
+}
+
+/* Configuraciones de borde y asignacion de colores */
+
+/* Configuraciones del frame principal */
+
+.frame_principal {
+    height: 1440px;
+    background-color: var(--color_fondo);
+    padding: 0 5%;
+    display: grid;
+    grid-template-rows: 96px 340px 620px 202px 112px;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        "frame_header"
+        "frame_hero"
+        "None"
+        "None"
+        "None"
+    ;
+}
+
+/* Configuraciones del frame principal */
+
+/* Widgets del header */
+
+.frame_header {
+    grid-area: frame_header;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.8fr;
+    grid-template-areas:
+        "texto_recargas texto_juegos texto_favoritos"
+    ;
+    align-items: center;
+    text-align: left;
+    border-bottom: 1px solid var(--color_borde);
+}
+
+.texto_recargas {
+    grid-area: texto_recargas;
+    color: var(--color_textos_verdes);
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.texto_juegos {
+    grid-area: texto_juegos;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.texto_favoritos {
+    grid-area: texto_favoritos;
+    color: var(--color_textos_plomos);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Widgets del header */
+
+/* Widgets para información */
+
+.frame_hero {
+    grid-area: frame_hero;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-areas: 
+        "hero_izquierda hero_derecha"
+    ;
+    align-items: center;
+    text-align: left;
+}
+
+.hero_izquierda {
+    grid-area: hero_izquierda;
+}
+
+.texto_subtitulo_verde {
+    color: var(--color_textos_verdes);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.texto_titulo_principal {
+    color: white;
+    font-size: 52px;
+    font-weight: bold;
+    line-height: 1.05;
+    margin: 0 0 18px 0;
+}
+
+.texto_descripcion_hero {
+    color: var(--color_textos_plomos);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.hero_derecha {
+    grid-area: hero_derecha;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tarjeta_hero {
+    background-color: var(--color_tarjeta);
+    border: 1px solid var(--color_borde);
+    border-radius: 16px;
+    padding: 28px;
+    width: 100%;
+    max-width: 340px;
+}
+
+.texto_tarjeta_superior {
+    color: var(--color_textos_verdes);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 0 16px 0;
+}
+
+.texto_tarjeta_principal {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+}
+
+.texto_tarjeta_inferior {
+    color: var(--color_textos_plomos);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Widgets para información */
+/* Widgets de los Juegos */
