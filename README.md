@@ -1,2 +1,2 @@
 La pagina web esta dirigida a un publico menor/adolecente, que tiende a jugar mas juegos con microtransacciones como freefire, con el proposito de que puedan comprar monedas de juegos sin necesidad de tarjetas facilitandoles las cosas y asi mismo sacar una ganancia
-Para mayor atraccion visual sin fatigar se uso los colores negro blanco verde, ademas de una interfaz directa que busca que encuentres lo que estas buscando de manera rápida
+Para mayor atraccion visual sin fatigar se uso los colores negro blanco verde, ademas de una interfaz directa que busca que encuentres lo que estas buscando de manera rápida.
