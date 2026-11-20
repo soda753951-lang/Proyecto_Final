@@ -1,8 +1,13 @@
 /* Configuraciones de borde y asignacion de colores */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color_fondo);
 }
 
 :root {
@@ -18,7 +23,7 @@ body {
 /* Configuraciones del frame principal */
 
 .frame_principal {
-    height: 1440px;
+    min-height: 1440px;
     background-color: var(--color_fondo);
     padding: 0 5%;
     display: grid;
@@ -27,9 +32,9 @@ body {
     grid-template-areas: 
         "frame_header"
         "frame_hero"
-        "None"
-        "None"
-        "None"
+        "frame_juegos"
+        "frame_pasos"
+        "frame_footer"
     ;
 }
 
@@ -153,4 +158,196 @@ body {
 }
 
 /* Widgets para información */
+
 /* Widgets de los Juegos */
+
+.frame_juegos {
+    grid-area: frame_juegos;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.juegos_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.titulo_seccion_juegos {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+}
+
+.subtitulo_seccion_juegos {
+    color: var(--color_textos_plomos);
+    font-size: 13px;
+    margin: 0;
+}
+
+.texto_catalogo {
+    color: var(--color_textos_plomos);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.grid_tarjetas_juegos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 225px);
+    gap: 22px;
+}
+
+.tarjeta_juego {
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.tarjeta_juego:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.12);
+}
+
+.juego_categoria {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.juego_nombre {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.juego_precio {
+    color: rgb(205, 212, 224);
+    font-size: 13px;
+    margin: 0 0 14px 0;
+}
+
+.juego_footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Widgets de los Juegos */
+
+/* Configuracion de colores de las tarjetas */
+
+.card_ff {
+    background-color: rgb(36, 28, 22);
+    border: 1px solid rgb(58, 43, 33);
+}
+.card_ff .juego_categoria,
+.card_ff .juego_footer {
+    color: rgb(217, 152, 92);
+}
+
+.card_pubg {
+    background-color: rgb(32, 32, 23);
+    border: 1px solid rgb(52, 52, 36);
+}
+.card_pubg .juego_categoria,
+.card_pubg .juego_footer {
+    color: rgb(196, 186, 102);
+}
+
+.card_val {
+    background-color: rgb(35, 22, 30);
+    border: 1px solid rgb(58, 35, 49);
+}
+.card_val .juego_categoria,
+.card_val .juego_footer {
+    color: rgb(216, 112, 147);
+}
+
+.card_ml {
+    background-color: rgb(31, 25, 44);
+    border: 1px solid rgb(50, 40, 72);
+}
+.card_ml .juego_categoria,
+.card_ml .juego_footer {
+    color: rgb(156, 134, 224);
+}
+
+.card_cod {
+    background-color: rgb(28, 34, 22);
+    border: 1px solid rgb(45, 56, 35);
+}
+.card_cod .juego_categoria,
+.card_cod .juego_footer {
+    color: rgb(155, 195, 84);
+}
+
+/* Configuracion de colores de las tarjetas */
+
+/* Widgets de los pasos */
+
+.frame_pasos {
+    grid-area: frame_pasos;
+    border-top: 1px solid var(--color_borde);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: center;
+    text-align: left;
+}
+
+.paso_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.paso_numero {
+    color: var(--color_textos_verdes);
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+.paso_titulo {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+}
+
+.paso_descripcion {
+    color: var(--color_textos_plomos);
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Widgets de los pasos */
+
+/* Widgets del footer */
+
+.frame_footer {
+    grid-area: frame_footer;
+    border-top: 1px solid var(--color_borde);
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+/* Widgets del footer */
