@@ -10,6 +10,11 @@ body {
     background-color: var(--color_fondo);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 :root {
     --color_fondo: rgb(11, 14, 19);
     --color_tarjeta: rgb(22, 27, 36);
@@ -17,8 +22,6 @@ body {
     --color_textos_verdes: rgb(155, 195, 84);
     --color_textos_plomos: rgb(155, 164, 181);
 }
-
-/* Configuraciones de borde y asignacion de colores */
 
 /* Configuraciones del frame principal */
 
@@ -29,7 +32,7 @@ body {
     display: grid;
     grid-template-rows: 96px 340px 620px 202px 112px;
     grid-template-columns: 100%;
-    grid-template-areas: 
+    grid-template-areas:
         "frame_header"
         "frame_hero"
         "frame_juegos"
@@ -38,17 +41,13 @@ body {
     ;
 }
 
-/* Configuraciones del frame principal */
-
 /* Widgets del header */
 
 .frame_header {
     grid-area: frame_header;
     display: grid;
     grid-template-columns: 1fr 1.1fr 1.8fr;
-    grid-template-areas:
-        "texto_recargas texto_juegos texto_favoritos"
-    ;
+    grid-template-areas: "texto_recargas texto_juegos texto_favoritos";
     align-items: center;
     text-align: left;
     border-bottom: 1px solid var(--color_borde);
@@ -77,17 +76,13 @@ body {
     margin: 0;
 }
 
-/* Widgets del header */
-
 /* Widgets para información */
 
 .frame_hero {
     grid-area: frame_hero;
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    grid-template-areas: 
-        "hero_izquierda hero_derecha"
-    ;
+    grid-template-areas: "hero_izquierda hero_derecha";
     align-items: center;
     text-align: left;
 }
@@ -157,8 +152,6 @@ body {
     margin: 0;
 }
 
-/* Widgets para información */
-
 /* Widgets de los Juegos */
 
 .frame_juegos {
@@ -204,6 +197,7 @@ body {
 }
 
 .tarjeta_juego {
+    position: relative;
     border-radius: 14px;
     padding: 24px;
     display: flex;
@@ -216,6 +210,19 @@ body {
 .tarjeta_juego:hover {
     transform: translateY(-4px);
     filter: brightness(1.12);
+}
+
+/* Enlace que cubre toda la tarjeta */
+.juego_nombre a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+}
+
+.juego_nombre a:focus-visible::after {
+    outline: 2px solid var(--color_textos_verdes);
+    outline-offset: 3px;
 }
 
 .juego_categoria {
@@ -248,56 +255,25 @@ body {
     font-weight: bold;
 }
 
-/* Widgets de los Juegos */
-
 /* Configuracion de colores de las tarjetas */
 
-.card_ff {
-    background-color: rgb(36, 28, 22);
-    border: 1px solid rgb(58, 43, 33);
-}
-.card_ff .juego_categoria,
-.card_ff .juego_footer {
-    color: rgb(217, 152, 92);
-}
+.card_ff { background-color: rgb(36, 28, 22); border: 1px solid rgb(58, 43, 33); }
+.card_ff .juego_categoria, .card_ff .juego_footer { color: rgb(217, 152, 92); }
 
-.card_pubg {
-    background-color: rgb(32, 32, 23);
-    border: 1px solid rgb(52, 52, 36);
-}
-.card_pubg .juego_categoria,
-.card_pubg .juego_footer {
-    color: rgb(196, 186, 102);
-}
+.card_pubg { background-color: rgb(32, 32, 23); border: 1px solid rgb(52, 52, 36); }
+.card_pubg .juego_categoria, .card_pubg .juego_footer { color: rgb(196, 186, 102); }
 
-.card_val {
-    background-color: rgb(35, 22, 30);
-    border: 1px solid rgb(58, 35, 49);
-}
-.card_val .juego_categoria,
-.card_val .juego_footer {
-    color: rgb(216, 112, 147);
-}
+.card_val { background-color: rgb(35, 22, 30); border: 1px solid rgb(58, 35, 49); }
+.card_val .juego_categoria, .card_val .juego_footer { color: rgb(216, 112, 147); }
 
-.card_ml {
-    background-color: rgb(31, 25, 44);
-    border: 1px solid rgb(50, 40, 72);
-}
-.card_ml .juego_categoria,
-.card_ml .juego_footer {
-    color: rgb(156, 134, 224);
-}
+.card_gi { background-color: rgb(21, 29, 46); border: 1px solid rgb(33, 46, 74); }
+.card_gi .juego_categoria, .card_gi .juego_footer { color: rgb(112, 158, 226); }
 
-.card_cod {
-    background-color: rgb(28, 34, 22);
-    border: 1px solid rgb(45, 56, 35);
-}
-.card_cod .juego_categoria,
-.card_cod .juego_footer {
-    color: rgb(155, 195, 84);
-}
+.card_ml { background-color: rgb(31, 25, 44); border: 1px solid rgb(50, 40, 72); }
+.card_ml .juego_categoria, .card_ml .juego_footer { color: rgb(156, 134, 224); }
 
-/* Configuracion de colores de las tarjetas */
+.card_cod { background-color: rgb(28, 34, 22); border: 1px solid rgb(45, 56, 35); }
+.card_cod .juego_categoria, .card_cod .juego_footer { color: rgb(155, 195, 84); }
 
 /* Widgets de los pasos */
 
@@ -338,8 +314,6 @@ body {
     margin: 0;
 }
 
-/* Widgets de los pasos */
-
 /* Widgets del footer */
 
 .frame_footer {
@@ -350,4 +324,287 @@ body {
     text-align: left;
 }
 
-/* Widgets del footer */
+/* ==========================================================
+   PÁGINAS DE DETALLE DE CADA JUEGO
+   ========================================================== */
+
+.frame_detalle {
+    min-height: 100vh;
+    padding: 0 5% 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: left;
+}
+
+.header_detalle {
+    height: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color_borde);
+}
+
+.enlace_volver {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.enlace_volver:hover { color: var(--color_textos_verdes); }
+
+.ruta_juego {
+    color: var(--color_textos_plomos);
+    font-size: 12px;
+    margin: 0;
+}
+
+.banner_juego {
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 36px;
+}
+
+.banner_fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.banner_fila:first-child { align-items: flex-start; }
+.banner_fila .juego_categoria { margin: 0; }
+
+.banner_titulo {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.banner_subtitulo {
+    color: rgb(205, 212, 224);
+    font-size: 14px;
+    margin: 0;
+}
+
+.banner_numero {
+    color: rgb(205, 212, 224);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.detalle_cuerpo {
+    display: grid;
+    grid-template-columns: 1.9fr 1fr;
+    grid-template-areas:
+        "bloque_paquetes bloque_info"
+        "bloque_datos bloque_info"
+    ;
+    gap: 22px;
+}
+
+.bloque_paquetes { grid-area: bloque_paquetes; }
+.bloque_datos { grid-area: bloque_datos; }
+.bloque_info { grid-area: bloque_info; }
+
+.titulo_bloque {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+}
+
+.subtitulo_bloque {
+    color: var(--color_textos_plomos);
+    font-size: 12px;
+    margin: 0 0 16px 0;
+}
+
+.grid_paquetes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.paquete {
+    background-color: var(--color_tarjeta);
+    border: 1px solid var(--color_borde);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.paquete_cantidad {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+.paquete_unidad {
+    color: var(--color_textos_plomos);
+    font-size: 12px;
+    margin: 0 0 18px 0;
+}
+
+.paquete_precio {
+    color: var(--color_textos_verdes);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tarjeta_detalle {
+    background-color: var(--color_tarjeta);
+    border: 1px solid var(--color_borde);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.dato_titulo {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+.dato_descripcion {
+    color: var(--color_textos_plomos);
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0 0 18px 0;
+}
+
+.info_campos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.campo_etiqueta {
+    color: var(--color_textos_plomos);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 0 0 4px 0;
+}
+
+.campo_valor {
+    color: white;
+    font-size: 13px;
+    margin: 0;
+}
+
+.aviso_verde {
+    color: var(--color_textos_verdes);
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.aviso_chico {
+    color: var(--color_textos_plomos);
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.boton_verde {
+    align-self: flex-end;
+    background-color: var(--color_textos_verdes);
+    color: var(--color_fondo);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 10px;
+    transition: filter 0.2s ease;
+}
+
+.boton_verde:hover { filter: brightness(1.12); }
+
+a:focus-visible { outline: 2px solid var(--color_textos_verdes); outline-offset: 3px; }
+
+/* ==========================================================
+   TABLET (hasta 1024px)
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    .frame_principal {
+        min-height: 0;
+        padding: 0 32px;
+        grid-template-rows: 80px auto auto auto 96px;
+    }
+
+    .frame_hero { grid-template-columns: 1.3fr 1fr; gap: 24px; padding: 40px 0; }
+    .texto_titulo_principal { font-size: 40px; }
+    .texto_tarjeta_principal { font-size: 26px; }
+    .tarjeta_hero { padding: 22px; }
+
+    .frame_juegos { padding: 8px 0 40px; }
+    .grid_tarjetas_juegos { grid-template-columns: repeat(2, 1fr); grid-template-rows: none; grid-auto-rows: 200px; }
+    .espacio_vacio { display: none; }
+
+    .frame_pasos { grid-template-columns: 1fr; gap: 22px; padding: 32px 0; }
+
+    .frame_detalle { padding: 0 32px 40px; }
+    .detalle_cuerpo {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bloque_paquetes"
+            "bloque_datos"
+            "bloque_info"
+        ;
+    }
+    .info_campos { grid-template-columns: 1fr 1fr; }
+}
+
+/* ==========================================================
+   MÓVIL (hasta 600px)
+   ========================================================== */
+
+@media (max-width: 600px) {
+    .frame_principal { padding: 0 20px; }
+
+    .frame_header {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "texto_recargas texto_juegos"
+            "texto_favoritos texto_favoritos"
+        ;
+        row-gap: 4px;
+        padding: 18px 0;
+    }
+    .frame_principal { grid-template-rows: auto auto auto auto 96px; }
+
+    .frame_hero { grid-template-columns: 1fr; grid-template-areas: "hero_izquierda" "hero_derecha"; padding: 32px 0; }
+    .hero_derecha { justify-content: flex-start; }
+    .tarjeta_hero { max-width: none; }
+    .texto_titulo_principal { font-size: 36px; }
+
+    .juegos_header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .grid_tarjetas_juegos { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+
+    .frame_detalle { padding: 0 20px 32px; gap: 22px; }
+    .header_detalle { height: 72px; }
+    .banner_juego { padding: 22px; gap: 28px; }
+    .banner_titulo { font-size: 26px; }
+
+    .grid_paquetes { grid-template-columns: 1fr; gap: 12px; }
+    .paquete {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "cantidad precio" "unidad precio";
+        align-items: center;
+    }
+    .paquete_cantidad { grid-area: cantidad; margin: 0; }
+    .paquete_unidad { grid-area: unidad; margin: 0; }
+    .paquete_precio { grid-area: precio; }
+
+    .info_campos { grid-template-columns: 1fr; }
+    .boton_verde { align-self: stretch; text-align: center; }
+}
